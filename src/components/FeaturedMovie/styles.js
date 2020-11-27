@@ -19,6 +19,8 @@ export const FeaturedTransparencyHorizontal = styled.div`
   flex-direction: column;
   justify-content: center;
   padding-left: 30px;
+  padding-bottom: 180px;
+  padding-top: 70px;
 `;
 
 export const FeaturedName = styled.div`

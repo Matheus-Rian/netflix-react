@@ -3,10 +3,12 @@ import "./App.css";
 import Tmdb from "./Tmdb";
 import MovieRow from "./components/MovieRow";
 import FeaturedMovie from "./components/FeaturedMovie";
+import Header from "./components/Header";
 
 function App() {
   const [movieList, setMovieList] = useState([]); //Vai iniciar com um [] vazio
   const [featuredData, setFeaturedData] = useState(null);
+  const [blackHeader, setBlackHeader] = useState(false)
 
   //useEffect: Quando a tela for carregada ele vai executar a function useEffect()
   useEffect(() => {
@@ -29,6 +31,8 @@ function App() {
 
   return (
     <div className="page">
+      <Header  black={blackHeader}/>
+
       {featuredData && 
         <FeaturedMovie item={featuredData} />
       }

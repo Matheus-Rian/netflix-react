@@ -21,8 +21,9 @@ const basicFetch = async (endpoint) => {
 }
 
 // Pegar as informações para mostrar na tela
+ // eslint-disable-next-line 
 export default {
-  getHomeList: async () => {
+  getHomeList: async function () {
     return [
       {
         slug: 'originals',
@@ -64,7 +65,7 @@ export default {
         title: 'Documentários',
         items: await basicFetch(`/discover/movie?with_genres=99&language=pt-BR&api_key=${API_KEY}`)
       }
-    ]
+    ];
   },
   getMovieInfo: async (movieId, type) => {
       let info = {};
