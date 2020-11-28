@@ -23,12 +23,27 @@ function App() {
       let chosen = originals[0].items.results[randomChosen]
       let chosenInfo = await Tmdb.getMovieInfo(chosen.id, 'tv')
       setFeaturedData(chosenInfo)
-
     };
 
     loadAll();
   }, []);
 
+  useEffect(() => {
+    const scrollListener = () => {
+      if(window.scrollY > 10) {
+        setBlackHeader(true);
+      } else {
+        setBlackHeader(false);
+      }
+    } 
+
+    window.addEventListener('scroll', scrollListener)
+
+    return () => {
+      window.removeEventListener('scroll', scrollListener)
+    }
+  }, [])
+  
   return (
     <div className="page">
       <Header  black={blackHeader}/>
@@ -43,6 +58,13 @@ function App() {
           <MovieRow key={key} title={item.title} items={item.items} />
         ))}
       </section>
+
+      <footer>
+        Feito com <span role='img' aria-label='coracao'>♥</span> por Matheus Rian<br/>
+        Direitos de imagem para netflix <br/>
+        Dados retirados da API themoviedb.org <br/>
+        Vídeo tutorial disponível no canal do Bonieky Lacerda <br/>
+      </footer>
     </div>
   );
 }

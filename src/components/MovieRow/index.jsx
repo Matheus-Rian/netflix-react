@@ -1,10 +1,22 @@
 import React from "react";
-import { MovieRowListArea, MovieRowList, MovieRowItem, MovieRowContainer } from "./styles";
+import './movieRow.css'
+import { MovieRowListArea, MovieRowList, MovieRowItem } from "./styles";
+import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore'
+import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 
 function MovieRow({ title, items }) {
   return (
-    <MovieRowContainer>
+    <div className='movieRowContainer'>
       <h2>{title}</h2>
+
+      <div className='navigateLeft'>
+        <NavigateBeforeIcon style={{fontSize:50}}/>
+      </div>
+
+      <div className='navigateRight'>
+        <NavigateNextIcon style={{fontSize:50}}/>
+      </div>
+
       <MovieRowListArea>
         <MovieRowList>
           {items.results.length > 0 &&
@@ -18,7 +30,7 @@ function MovieRow({ title, items }) {
             ))}
         </MovieRowList>
       </MovieRowListArea>
-    </MovieRowContainer>
+    </div>
   );
 }
 export default MovieRow;

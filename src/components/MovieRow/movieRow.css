@@ -1,0 +1,36 @@
+.movieRowContainer {
+  margin-bottom: 30px;
+}
+
+.movieRowContainer h2 {
+  margin-left: 30px;
+}
+
+.movieRowContainer:hover .navigateLeft,
+.movieRowContainer:hover .navigateRight {
+  transition: all ease 0.2s;
+  opacity: 1;
+}
+
+.navigateLeft,
+.navigateRight {
+  overflow: hidden;
+  position: absolute;
+  width: 40px;
+  height: 225px;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.navigateLeft {
+  left: 0;
+}
+
+.navigateRight {
+  right: 0;
+}
