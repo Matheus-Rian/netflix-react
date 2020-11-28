@@ -20,6 +20,11 @@ function FeaturedMovie({ item }) {
   for(let i in item.genres) {
     genres.push(item.genres[i].name)
   }
+
+  let description = item.overview
+  if(description.length > 200) {
+    description = description.substring(0, 200)+'...';
+  }
   return (
     <Featured
       style={{
@@ -39,7 +44,7 @@ function FeaturedMovie({ item }) {
               {item.number_of_seasons > 1 ? "s" : ""}
             </FeaturedSeasons>
           </FeaturedInfo>
-          <FeaturedDescription>{item.overview}</FeaturedDescription>
+          <FeaturedDescription>{description}</FeaturedDescription>
           <FeaturedButtons>
             <a href={`/watch/${item.id}`} className="watch">▶ Assistir</a>
             <a href={`/list/add/${item.id}`} className="list">+ Minha Lista</a>

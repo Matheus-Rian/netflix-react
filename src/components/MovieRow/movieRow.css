@@ -8,8 +8,11 @@
 
 .movieRowContainer:hover .navigateLeft,
 .movieRowContainer:hover .navigateRight {
-  transition: all ease 0.2s;
+  transition: all ease 0.5s;
   opacity: 1;
+}
+.movieRowList {
+  transition: all ease 0.5s;
 }
 
 .navigateLeft,
@@ -33,4 +36,11 @@
 
 .navigateRight {
   right: 0;
+}
+
+@media (max-width: 760px) {
+  .navigateRight,
+  .navigateLeft {
+    opacity: 1;
+  }
 }

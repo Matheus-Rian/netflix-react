@@ -8,7 +8,7 @@ import Header from "./components/Header";
 function App() {
   const [movieList, setMovieList] = useState([]); //Vai iniciar com um [] vazio
   const [featuredData, setFeaturedData] = useState(null);
-  const [blackHeader, setBlackHeader] = useState(false)
+  const [blackHeader, setBlackHeader] = useState(false);
 
   //useEffect: Quando a tela for carregada ele vai executar a function useEffect()
   useEffect(() => {
@@ -18,10 +18,12 @@ function App() {
       setMovieList(list);
 
       //Pegando o Featured(Filme em destaque)
-      let originals = list.filter(i => i.slug === 'originals' )
-      let randomChosen = Math.floor(Math.random() * (originals[0].items.results.length - 1))
-      let chosen = originals[0].items.results[randomChosen]
-      let chosenInfo = await Tmdb.getMovieInfo(chosen.id, 'tv')
+      let originals = list.filter((i) => i.slug === "originals");
+      let randomChosen = Math.floor(
+        Math.random() * (originals[0].items.results.length - 1)
+      );
+      let chosen = originals[0].items.results[randomChosen];
+      let chosenInfo = await Tmdb.getMovieInfo(chosen.id, "tv");
       setFeaturedData(chosenInfo)
     };
 
@@ -30,27 +32,25 @@ function App() {
 
   useEffect(() => {
     const scrollListener = () => {
-      if(window.scrollY > 10) {
+      if (window.scrollY > 10) {
         setBlackHeader(true);
       } else {
         setBlackHeader(false);
       }
-    } 
+    };
 
-    window.addEventListener('scroll', scrollListener)
+    window.addEventListener("scroll", scrollListener);
 
     return () => {
-      window.removeEventListener('scroll', scrollListener)
-    }
-  }, [])
-  
+      window.removeEventListener("scroll", scrollListener);
+    };
+  }, []);
+
   return (
     <div className="page">
-      <Header  black={blackHeader}/>
+      <Header black={blackHeader} />
 
-      {featuredData && 
-        <FeaturedMovie item={featuredData} />
-      }
+      {featuredData && <FeaturedMovie item={featuredData} />}
 
       <section className="lists">
         {/* Toda vez que eu tiver um loop tenho que colocar um key */}
@@ -60,11 +60,25 @@ function App() {
       </section>
 
       <footer>
-        Feito com <span role='img' aria-label='coracao'>♥</span> por Matheus Rian<br/>
-        Direitos de imagem para netflix <br/>
-        Dados retirados da API themoviedb.org <br/>
-        Vídeo tutorial disponível no canal do Bonieky Lacerda <br/>
+        Feito com{" "}
+        <span role="img" aria-label="coracao">
+          ♥
+        </span>{" "}
+        por Matheus Rian
+        <br />
+        Direitos de imagem para netflix <br />
+        Dados retirados da API themoviedb.org <br />
+        Vídeo tutorial disponível no canal do Bonieky Lacerda <br />
       </footer>
+
+      {movieList.length <= 0 && (
+        <div className="loading">
+          <img
+            src="https://i.pinimg.com/originals/f9/0f/76/f90f7689233948005f465d98ead56d44.gif"
+            alt="carregando"
+          />
+        </div>
+      )}
     </div>
   );
 }

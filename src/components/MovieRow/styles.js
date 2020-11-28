@@ -6,9 +6,6 @@ export const MovieRowListArea = styled.div`
 
 `;
 
-export const MovieRowList = styled.div`
-  width: 9999999999px;
-`;
 
 export const MovieRowItem = styled.div`
   display: inline-block;
