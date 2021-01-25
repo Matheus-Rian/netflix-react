@@ -28,7 +28,7 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 $ git clone https://github.com/Matheus-Rian/netflix-react.git
 
 # Entrar no diretório:
-$ cd nubank-ionic
+$ cd netflix-react
   
 # Instalando dependências
 $ yarn
