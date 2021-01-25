@@ -13,7 +13,7 @@
 
 <p style="font-family: roboto;">The objective of the project is to learn in practice react.js concepts by cloning the netflix interface, in addition animations were made to make the interface as similar as possible.</p>
 
-### :hammer: Pré-requisitos 
+### :hammer: Requirements 
 
 Before you begin, you will need to have the following tools installed on your machine:
 [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/). 
@@ -29,10 +29,10 @@ $ git clone https://github.com/Matheus-Rian/netflix-react.git
 # Enter the directory:
 $ cd netflix-react
   
-# Installing dependencies
+# Installing dependencies:
 $ yarn
 
-# Running the application in development mode
+# Running the application in development mode:
 $ yarn start
 ``` 
 
